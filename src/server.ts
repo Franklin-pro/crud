@@ -15,6 +15,7 @@ app.use('/v1/',router)
 
 const port = process.env.PORT || 3000;
 const database = process.env.DATABASE;
+app.use(bodyParser.urlencoded({extended: true}))
 
 if (!database) {
   throw new Error('DATABASE environment variable is not defined');

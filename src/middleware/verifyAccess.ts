@@ -31,7 +31,7 @@ const VerifyAccess = (passrole: string) => {
             const verifyToken = Jwt.verify(token, secretKey) as UserPayload;
             req.user = verifyToken;
             if (passrole !== verifyToken.user.role) {
-                return errormessage(res, 403, `You don't have access`);
+                return errormessage(res, 404, `You don't have access`);
             } else {
                 next();
             }
